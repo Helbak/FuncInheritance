@@ -4,31 +4,31 @@ function myList() {
     this.getSize = function () {
         return this.size;
     };
-    this.doPush = function () {
+    this.push = function () {
     };
     this.upgradeList = function () {
     };
-    this.doUnshift = function () {
+    this.unshift = function () {
     };
-    this.doPop = function () {
+    this.pop = function () {
     };
     this.listToList = function () {
     };
-    this.doRemove = function () {
+    this.remove = function () {
     };
-    this.doShift = function () {
+    this.shift = function () {
 
     };
-    this.doSort = function () {
+    this.sort = function () {
 
     };
-    this.doSplice = function () {
+    this.splice = function () {
     };
-    this.doToString = function () {
+    this.toString = function () {
     };
     //Метод map позволяет применить заданную функцию для каждого элемента массива.
     // При этом метод не изменяет исходный массив, а возвращает измененный.
-    this.doMap = function () {
+    this.map = function () {
 
     };
     this.convertList = function (list) {
@@ -37,7 +37,7 @@ function myList() {
             let newLink = new myLinkedList();
 
             for (let i = 0; i < list.array.length; i++) {
-                newLink.doPush(list.array[i]);
+                newLink.push(list.array[i]);
             }
             return newLink;
         }
@@ -48,7 +48,7 @@ function myList() {
             let nextNode = list.rootNode;
             for (let i = 0; i < list.size; i++) {
                 nextNode = list.getNextNode(list.rootNode);
-                newArray.doPush(nextNode.el);
+                newArray.push(nextNode.el);
             }
             return newArray;
         }
@@ -69,7 +69,7 @@ function myArrayList() {
         });
         return size;
     };
-    this.doSetArray = function (array) {
+    this.setArray = function (array) {
         if (array == null) {
             return false;
         }
@@ -79,7 +79,7 @@ function myArrayList() {
         }
         return false;
     };
-    this.doPush = function (element) {
+    this.push = function (element) {
         if (element == null) {
             return false;
         }
@@ -90,7 +90,7 @@ function myArrayList() {
         this.array = [];
         return this.array;
     }
-    this.doUnShift = function (element) {
+    this.unShift = function (element) {
         if (element == null) {
             return false;
         }
@@ -100,7 +100,7 @@ function myArrayList() {
         this.array[0] = element;
         return this.array[0];
     };
-    this.doPop = function () {
+    this.pop = function () {
         if (this.getSize() == 0) {
             return false;
         }
@@ -115,7 +115,7 @@ function myArrayList() {
     };
     this.listToList = function () {
     };
-    this.doRemove = function (index) {
+    this.remove = function (index) {
         if (this.getSize() <= 0) {
             return false;
         }
@@ -125,7 +125,7 @@ function myArrayList() {
         delete this.array[this.getSize() - 1];
         return this.array;
     };
-    this.doShift = function () {
+    this.shift = function () {
         if (this.getSize() == 0) {
             return false;
         }
@@ -135,7 +135,7 @@ function myArrayList() {
         delete this.array[this.getSize() - 1];
         return this.array;
     };
-    this.doSort = function () {
+    this.sort = function () {
         if (this.getSize == 0) {
             return false;
         }
@@ -160,7 +160,7 @@ function myArrayList() {
         }
         return this.array;
     };
-    this.doSplice = function (pos, amount) {
+    this.splice = function (pos, amount) {
         if (this.getSize() < amount + pos) {
             return false;
         }
@@ -174,7 +174,7 @@ function myArrayList() {
         this.array.length = this.array.length - amount;
         return this.array;
     };
-    this.doToString = function () {
+    this.toString = function () {
 
         let result = '';
         for (let i = 0; i < this.getSize(); i++) {
@@ -182,7 +182,7 @@ function myArrayList() {
         }
         return result;
     };
-    this.doMap = function (foo) {//foo(a) = return a*10;
+    this.map = function (foo) {//foo(a) = return a*10;
 
         const result = new myArrayList();
 
@@ -192,7 +192,6 @@ function myArrayList() {
         return result;
     };
 }
-
 
 function myLinkedList() {
     myList.call(this);
@@ -234,7 +233,7 @@ function myLinkedList() {
         }
         return this.getLastNode(node.next);
     };
-    this.doPush = function (el) {
+    this.push = function (el) {
         if (this.rootNode === null) {
             this.initList();
         }
@@ -267,7 +266,7 @@ function myLinkedList() {
         }
         return result;
     };
-    this.doUnshift = function (el) {
+    this.unshift = function (el) {
         if (this.rootNode === null) {
             this.initList();
         }
@@ -288,7 +287,7 @@ function myLinkedList() {
         }
 
     };
-    this.doPop = function () {
+    this.pop = function () {
         if (this.rootNode === null) {
             return false;
         }
@@ -305,7 +304,7 @@ function myLinkedList() {
             return this.getLastNode(this.rootNode);
         }
     };
-    this.doRemove = function (val) {
+    this.remove = function (val) {
         let wasValue;
         let prevNode;
         let nextNode;
@@ -354,7 +353,7 @@ function myLinkedList() {
         }
 
     };
-    this.doShift = function () {
+    this.shift = function () {
         let newFirst = null;
         if (this.rootNode === null) {
             return false;
@@ -427,7 +426,7 @@ function myLinkedList() {
         console.log(this.getLastNode(this.rootNode));
         return this.getLastNode(this.rootNode);
     }
-    this.doSplice = function (val, amount) {
+    this.splice = function (val, amount) {
         let nextDead = null;
         let nextValue = null;
         if (arguments.length < 2 || arguments.length > 2) {
@@ -444,7 +443,7 @@ function myLinkedList() {
                 return false;
             }
 
-            nextDead = this.doRemoveForSplice(val);
+            nextDead = this.removeForSplice(val);
             val = nextDead.el;
 
             if (nextDead === false) {
@@ -456,7 +455,7 @@ function myLinkedList() {
         }
 
     };
-    this.doRemoveForSplice = function (val) {
+    this.removeForSplice = function (val) {
 
         let wasValue;
         let prevNode;
@@ -487,7 +486,7 @@ function myLinkedList() {
         return nextNode;
 
     };
-    this.doToString = function () {
+    this.toString = function () {
         let nextNode = this.rootNode;
         let result = 'root, ';
         let nextElement = '';
@@ -511,7 +510,7 @@ function myLinkedList() {
         }
         return null;
     };
-    this.doMap = function (foo) {
+    this.map = function (foo) {
         const result = new myLinkedList();
         // let resultNextNode = result.rootNode;
         let nextNode = this.rootNode;
@@ -519,8 +518,133 @@ function myLinkedList() {
             nextNode = this.getNextNode(nextNode);
             // resultNextNode=result.getNextNode(result.rootNode);
             let elem = foo(nextNode.el);
-            result.doPush(elem);
+            result.push(elem);
         }
         return result.rootNode.next.el;
     };
+}
+
+function myBSTree() {
+    myList.call(this);
+    this.rootNode = null;
+    this.size = 0;
+    this.getSize = function () {
+        return this.size;
+    }
+    this.sumSize = function () {
+        this.size++;
+        return this.size;
+    };
+    this.upgrade = function () {
+        this.size = 0;
+        this.rootNode = null;
+    }
+    this.minusSize = function () {
+        if (this.size < 1) {
+            return false;
+        }
+        this.size--;
+        return this.size;
+    };
+    this.initList = function (el) {
+        if (this.rootNode !== null) {
+            return false;
+        }
+        if (this.rootNode == null) {
+            this.rootNode = this.createNode(el);
+            return this.rootNode;
+        }
+    };
+    this.createNode = function (el) {
+        return {
+            el: el,
+            right: null,
+            left: null,
+        }
+    };
+    this.push = function (firstNode, el) {
+        if (this.rootNode === null) {
+            this.initList(el);
+            return this.rootNode;
+        }
+        if (firstNode.el === el) {
+            return el;
+        }
+        if (firstNode.el > el && firstNode.left === null) {
+            firstNode.left = this.createNode(el);
+            this.sumSize();
+            return firstNode.left;
+        }
+        if (firstNode.el < el && firstNode.right === null) {
+            firstNode.right = this.createNode(el);
+            this.sumSize();
+            return firstNode.right;
+        }
+        if (firstNode.el < el && firstNode.right !== null) {
+            return this.push(firstNode.right, el);
+        }
+        if (firstNode.el > el && firstNode.left !== null) {
+            return this.push(firstNode.left, el);
+        }
+
+    };
+    let count = 0;
+    this.getNextNode = function (firstNode, el) {
+        if (el > firstNode.el) {
+            return firstNode.right;
+        }
+        if (el <= firstNode.el) {
+            return firstNode.left;
+        }
+    };
+    this.getNode = function (firstNode, el) {
+
+        if (this.rootNode === null) {
+            return false;
+        }
+        console.log('this.rootNode ===  ' + firstNode.el + "  =  " + el + " attempt N " + count);
+        count++;
+        if (firstNode.el === el) {
+            console.log('in the loop this.rootNode ===  ' + firstNode.el + '  =   ' + el + " attempt N " + count);
+            console.log("typeof  firstNode.el  " + typeof firstNode.el);
+            console.log("typeof  el  " + typeof el + el);
+            count++;
+            return firstNode;
+
+        }
+        if (firstNode.el > el) {
+            return this.getNode(firstNode.left, el);
+        }
+        if (firstNode.el < el) {
+            return this.getNode(firstNode.right, el);
+        }
+        return firstNode;
+    };
+    this.getPrevNode = function (firstNode, el) {
+
+        if (this.rootNode === null) {
+            return false;
+        }
+        if (this.rootNode.el === el) {
+            return 'rootNode';
+        }
+        if (firstNode.right !== null && firstNode.right.el === el) {
+            return firstNode;
+        }
+        if (firstNode.left !== null && firstNode.left.el === el) {
+            console.log('help');
+            return firstNode;
+        }
+        if (el > firstNode.el) {
+            return this.getPrevNode(firstNode.right, el);
+        }
+        if (el < firstNode.el) {
+            return this.getPrevNode(firstNode.left, el);
+        }
+    };
+//     this.remove = function (el) {
+// let deadNode = this.getNode(this.rootNode, el);
+//
+//     }
+
 }
